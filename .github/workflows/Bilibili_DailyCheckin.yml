@@ -28,12 +28,19 @@ jobs:
         env:
           # 必需的环境变量
           BILIBILI_COOKIE: ${{ secrets.BILIBILI_COOKIE }}
-          
-          # 可选的环境变量
-          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+
+          # 邮件推送配置（可选）
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+
+          # 任务配置（可选）
           TASK_CONFIG: ${{ secrets.TASK_CONFIG }}
           COIN_ADD_NUM: ${{ secrets.COIN_ADD_NUM }}
           COIN_SELECT_LIKE: ${{ secrets.COIN_SELECT_LIKE }}
           COIN_VIDEO_SOURCE: ${{ secrets.COIN_VIDEO_SOURCE }}
-          
+
         run: python main.py # 修改了执行的入口文件
